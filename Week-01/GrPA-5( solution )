@@ -1,0 +1,35 @@
+# Read the age as an integer from standard input
+age = int(input())
+
+# Read the date of birth in dd/mm/yy format
+dob = input()
+
+# Extract day, month, and year from dob
+day, month, year = int(dob[0:2]), int(dob[3:5]), int(dob[6:])
+
+# Fifth birthday (add 5 years to the birth year)
+fifth_birthday = f"{day}/{month}/{year + 5}"
+
+# Last birthday (add the current age to the birth year)
+last_birthday = f"{day}/{month}/{year + age}"
+
+# Calculate the same day after 10 months
+new_month = (month + 10 - 1) % 12 + 1
+new_year = year + ((month + 10 - 1) // 12)
+tenth_month = f"{day}/{new_month}/{new_year}"
+
+# Print tenth month, fifth birthday, and last birthday in the same line, separated by commas
+print(f"{tenth_month}, {fifth_birthday}, {last_birthday}")
+
+# Read weight as a float from stdin
+weight = float(input())
+
+# Calculate the integer kilogram part and gram part
+kg = int(weight)
+grams = int((weight - kg) * 1000)
+
+# Format weight as "x kg y grams"
+weight_readable = f"{kg} kg {grams} grams"
+
+# Print weight_readable
+print(weight_readable)
