@@ -1,0 +1,24 @@
+def power(A, m):
+    """
+    Recursive function to compute A^m for a square matrix A and positive integer m.
+    
+    Parameters:
+        A: square matrix (list of lists)
+        m: positive integer exponent
+    Return:
+        A^m as a square matrix
+    """
+    n = len(A)
+    
+    # Base case: A^1 = A
+    if m == 1:
+        return A
+    
+    # Recursive case: A^m = A * A^(m-1)
+    if m % 2 == 0:
+        half_power = power(A, m // 2)
+        return [[sum(half_power[i][k] * half_power[k][j] for k in range(n)) 
+                for j in range(n)] for i in range(n)]
+    else:
+        return [[sum(A[i][k] * power(A, m - 1)[k][j] for k in range(n)) 
+                for j in range(n)] for i in range(n)]
