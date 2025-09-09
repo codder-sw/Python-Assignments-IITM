@@ -1,0 +1,18 @@
+def steps(n):
+    """
+    Recursively calculates the number of ways to climb n steps taking 1, 2, or 3 steps at a time.
+    Order of steps matters.
+    
+    Parameters:
+        n: positive integer (number of steps)
+    Return:
+        number of distinct ways to climb
+    """
+    # Base cases
+    if n == 0:
+        return 1  # One way to stay at ground level (do nothing)
+    if n < 0:
+        return 0  # No way to climb negative steps
+    
+    # Recursive case: sum of possibilities for 1, 2, and 3 step jumps
+    return steps(n - 1) + steps(n - 2) + steps(n - 3)
