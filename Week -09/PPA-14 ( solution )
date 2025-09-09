@@ -1,0 +1,27 @@
+def det(M):
+    """
+    Recursive function to compute the determinant of a square matrix M.
+    
+    Parameters:
+        M: square matrix (list of lists)
+    Return:
+        determinant of M (integer/float)
+    """
+    n = len(M)
+    
+    # Base case: 1x1 matrix
+    if n == 1:
+        return M[0][0]
+    
+    # Base case: 2x2 matrix
+    if n == 2:
+        return M[0][0] * M[1][1] - M[0][1] * M[1][0]
+    
+    determinant = 0
+    for j in range(n):
+        # Create minor matrix by removing 0th row and jth column
+        minor = [row[:j] + row[j+1:] for row in M[1:]]
+        # Calculate cofactor and add to determinant
+        determinant += ((-1) ** j) * M[0][j] * det(minor)
+    
+    return determinant
