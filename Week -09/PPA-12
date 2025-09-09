@@ -1,0 +1,101 @@
+A polynomial is a mathematical function of the following form:
+
+f
+(
+x
+)
+=
+a
+0
+x
+0
++
+a
+1
+x
+1
++
+a
+2
+x
+2
++
+⋯
++
+a
+n
+x
+n
+f(x)=a 
+0
+​
+ x 
+0
+ +a 
+1
+​
+ x 
+1
+ +a 
+2
+​
+ x 
+2
+ +⋯+a 
+n
+​
+ x 
+n
+ 
+The 
+a
+i
+a 
+i
+​
+ s are called the coefficients of the polynomial and uniquely determine it. This polynomial can be represented in Python using a list of its coefficients:
+
+L = [a_0, a_1, a_2, . . ., a_n]
+
+Note that L[i] corresponds to the coefficient 
+a
+i
+a 
+i
+​
+  of 
+x
+i
+x 
+i
+  in 
+f
+(
+x
+)
+f(x), for 
+0
+≤
+i
+≤
+n
+0≤i≤n.
+
+Write a recursive function named poly that accepts the list of coefficients L and a real number x_0 as arguments. It should return the polynomial evaluated at the value x_0. For example poly([1, 2, 3], 5) should return the value 
+1
++
+2
+×
+5
++
+3
+×
+5
+2
+=
+86
+1+2×5+3×5 
+2
+ =86.
+
+You do not have to accept input from the user or print the output to the console. You just have to write the function definition.
