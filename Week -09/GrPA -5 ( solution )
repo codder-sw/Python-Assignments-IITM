@@ -1,0 +1,20 @@
+def ancestry(P, present, past):
+    """
+    Recursively traces ancestry from present to past person.
+    
+    Parameters:
+        P: dictionary of father-son relationships {son: father}
+        present: starting person (string)
+        past: target ancestor (string)
+    Return:
+        list of names in the lineage from present to past (inclusive)
+    """
+    if present == past:
+        return [present]
+    if present not in P:
+        return []  # or could raise an error if past isn't reachable
+    
+    lineage = ancestry(P, P[present], past)
+    if lineage:  # Only prepend if we found a path to past
+        return [present] + lineage
+    return []  # Return empty list if no path found
