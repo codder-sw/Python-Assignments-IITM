@@ -1,0 +1,21 @@
+def linear(P, Q, k):
+    """
+    Recursively checks if P and Q are of same length and each element in P is k times
+    the corresponding element in Q.
+    
+    Parameters:
+        P: non-empty list of positive integers
+        Q: non-empty list of positive integers
+        k: positive integer
+    Return:
+        True if conditions are satisfied, False otherwise
+    """
+    # Base case: empty lists (after recursive processing)
+    if not P and not Q:
+        return True
+    # Check if lengths are different or either list is empty
+    if len(P) != len(Q) or not P or not Q:
+        return False
+    # Check current elements and recurse on rest
+    return P[0] == k * Q[0] and linear(P[1:], Q[1:], k)
+    
