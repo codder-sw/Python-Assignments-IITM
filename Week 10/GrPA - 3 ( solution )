@@ -1,0 +1,27 @@
+class Shape:
+    def __init__(self, name):
+        self.name = name
+        self.area = None
+        self.perimeter = None
+
+    def display(self):
+        print(f'{self.name} has an area of {self.area} and perimeter of {self.perimeter}')
+class Square(Shape):
+    def __init__(self, side):
+        # Call the constructor of the base class and set name to "Square"
+        super().__init__("Square")
+        
+        # Assign side to the corresponding attribute
+        self.side = side
+        
+        # Call the methods to compute area and perimeter
+        self.compute_area()
+        self.compute_perimeter()
+    
+    def compute_area(self):
+        # Compute the area of the square and assign it to the area attribute
+        self.area = self.side * self.side
+    
+    def compute_perimeter(self):
+        # Compute the perimeter of the square and assign it to the perimeter attribute
+        self.perimeter = 4 * self.side
