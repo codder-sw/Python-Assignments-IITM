@@ -1,0 +1,22 @@
+def subset_sum(L, s):
+    """
+    Determines if a subset of coins in L sums to exactly s.
+    
+    Parameters:
+        L: list of positive integers (coin values)
+        s: target sum (positive integer)
+    Return:
+        True if a subset exists, False otherwise
+    """
+    # Base cases
+    if s == 0:
+        return True
+    if not L or s < 0:
+        return False
+    
+    # Recursive cases
+    # Option 1: Include first coin
+    if subset_sum(L[1:], s - L[0]):
+        return True
+    # Option 2: Exclude first coin
+    return subset_sum(L[1:], s)
