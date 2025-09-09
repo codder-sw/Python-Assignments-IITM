@@ -1,0 +1,32 @@
+def insert(L, x):
+    """
+    Inserts integer x into the sorted list L while maintaining the sorted order.
+    
+    Parameters:
+        L: sorted list of integers
+        x: integer to be inserted
+    Return:
+        sorted list with x inserted
+    """
+    if not L:
+        return [x]
+    if x <= L[0]:
+        return [x] + L
+    else:
+        return [L[0]] + insert(L[1:], x)
+        
+        
+
+def isort(L):
+    """
+    Sorts a list of integers using insertion sort (recursive implementation).
+    
+    Parameters:
+        L: non-empty list of integers
+    Return:
+        sorted list in ascending order
+    """
+    if len(L) == 1:
+        return L
+    else:
+        return insert(isort(L[:-1]), L[-1])
