@@ -1,0 +1,15 @@
+def get_freq(filename):
+    """
+    Extract frequency information from the file
+
+    Argument:
+        filename: string, path to file
+    Return:
+        result: dictionary; keys are strings, values are integers
+    """
+    freq_dict = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            word = line.strip()
+            freq_dict[word] = freq_dict.get(word, 0) + 1
+    return freq_dict
