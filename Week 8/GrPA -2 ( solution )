@@ -1,0 +1,26 @@
+def get_goals(filename, country):
+    """
+    Get the count of players and their cumulative goals for this country
+
+    Arguments:
+        filename: string
+        country: string
+    Return: 
+        result: tuple, (integer, integer)
+    """
+    num_players = 0
+    num_goals = 0
+    
+    with open(filename, 'r') as file:
+        next(file)  # Skip the header line
+        for line in file:
+            parts = line.strip().split(',')
+            player_country = parts[1]
+            if player_country == country:
+                num_players += 1
+                num_goals += int(parts[2])
+    
+    if num_players == 0:
+        return (-1, -1)
+    else:
+        return (num_players, num_goals)
