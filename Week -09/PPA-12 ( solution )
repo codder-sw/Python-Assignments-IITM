@@ -1,0 +1,5 @@
+def poly(L, x_0):
+    if not L:
+        return 0
+    else:
+        return L[0] + x_0 * poly(L[1:], x_0)
